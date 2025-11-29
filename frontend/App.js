@@ -4,8 +4,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from './src/SplashScreen.jsx';
-import VolunteerDashboard from './src/Volunteer/components/VolunteerDashboard';
+import SplashScreen from './src/screens/Splash/SplashScreen.jsx';
+import TabNavigator from './src/navigation/TabNavigator';
 
 // Configure the theme
 const theme = {
@@ -39,7 +39,7 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Splash" component={SplashScreen} />
-            <Stack.Screen name="Volunteer" component={VolunteerDashboard} />
+            <Stack.Screen name="Main" component={TabNavigator} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

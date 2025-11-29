@@ -11,11 +11,11 @@ import {
   useTheme,
 } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DonationCard from './DonationCard';
-import DonationDetails from './DonationDetails';
-import FilterSection from './FilterSection';
-import DashboardTabs from './DashboardTabs';
-import MyTaskCard from './MyTaskCard';
+import DonationCard from './components/DonationCard';
+import DonationDetails from './components/DonationDetails';
+import FilterSection from './components/FilterSection';
+import DashboardTabs from './components/DashboardTabs';
+import MyTaskCard from './components/MyTaskCard';
 
 // Import local images
 import food1 from '../../../assets/food1.jpg'; // Biryani
@@ -80,7 +80,7 @@ const mockDonations = [
   },
 ];
 
-const VolunteerDashboard = () => {
+const VolunteerScreen = () => {
   const theme = useTheme();
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
@@ -269,4 +269,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default VolunteerDashboard;
+export default VolunteerScreen;
