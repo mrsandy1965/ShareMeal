@@ -2,18 +2,6 @@
 
 ShareMeal is a comprehensive food donation platform that connects food donors with volunteers to reduce food waste and fight hunger in communities. The application enables seamless coordination between donors who want to share excess food and volunteers who help distribute it to those in need.
 
-## 📋 Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Backend Features](#backend-features)
-- [Frontend Features](#frontend-features)
-- [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
-- [Environment Variables](#environment-variables)
-- [Contributing](#contributing)
 
 ## ✨ Features
 
