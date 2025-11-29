@@ -83,8 +83,9 @@ const DonationCard = ({ donation, onAccept, onPress, isAccepted = false }) => {
             </View>
 
             <View style={styles.quantityContainer}>
-              <Text style={styles.quantityText}>{quantity} servings</Text>
-              <Text style={styles.mealsText}>~{meals} meals</Text>
+              <Text style={styles.quantityText}>{quantity}</Text>
+              <Text style={styles.mealsText}>servings</Text>
+              <Text style={styles.mealsSubText}>~{meals} meals</Text>
             </View>
           </View>
 
@@ -94,7 +95,7 @@ const DonationCard = ({ donation, onAccept, onPress, isAccepted = false }) => {
             </Text>
           )}
         </View>
-      </View >
+      </View>
 
       <Card.Actions style={styles.cardActions}>
         <Button
@@ -106,31 +107,39 @@ const DonationCard = ({ donation, onAccept, onPress, isAccepted = false }) => {
             isAccepted && { backgroundColor: theme.colors.secondary }
           ]}
           labelStyle={styles.buttonLabel}
+          contentStyle={styles.buttonContent}
         >
           {isAccepted ? 'Accepted' : 'Accept Donation'}
         </Button>
       </Card.Actions>
-    </Card >
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
     marginBottom: 16,
-    borderRadius: 12,
-    elevation: 2,
-    overflow: 'hidden',
-    marginHorizontal: 8,
+    borderRadius: 16,
+    elevation: 4,
+    backgroundColor: 'white',
+    marginHorizontal: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   cardContent: {
     flexDirection: 'row',
+    padding: 12,
   },
   imageContainer: {
-    width: 120,
-    height: 120,
+    width: 100,
+    height: 100,
+    borderRadius: 12,
     backgroundColor: '#f5f5f5',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   foodImage: {
     width: '100%',
@@ -138,7 +147,8 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     flex: 1,
-    padding: 12,
+    paddingLeft: 12,
+    justifyContent: 'space-between',
   },
   headerRow: {
     flexDirection: 'row',
@@ -146,11 +156,13 @@ const styles = StyleSheet.create({
   },
   foodInfo: {
     flex: 1,
+    marginRight: 8,
   },
   foodType: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 6,
+    color: '#333',
   },
   infoRow: {
     flexDirection: 'row',
@@ -158,9 +170,9 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   infoText: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#666',
-    marginLeft: 4,
+    marginLeft: 6,
   },
   chipContainer: {
     flexDirection: 'row',
@@ -170,48 +182,65 @@ const styles = StyleSheet.create({
   chip: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
     borderWidth: 1,
-    marginRight: 6,
+    marginRight: 8,
     marginBottom: 4,
   },
   chipText: {
-    fontSize: 10,
-    fontWeight: '500',
+    fontSize: 11,
+    fontWeight: '600',
   },
   quantityContainer: {
-    alignItems: 'flex-end',
-    marginLeft: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f0f9f6',
+    borderRadius: 8,
+    padding: 8,
+    height: 70,
+    minWidth: 70,
   },
   quantityText: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#1ABC9C',
   },
   mealsText: {
     fontSize: 10,
     color: '#666',
+    fontWeight: '500',
+  },
+  mealsSubText: {
+    fontSize: 10,
+    color: '#999',
+    marginTop: 2,
   },
   donorText: {
-    fontSize: 11,
-    color: '#666',
-    marginTop: 4,
+    fontSize: 12,
+    color: '#999',
+    marginTop: 8,
     fontStyle: 'italic',
   },
   cardActions: {
-    padding: 0,
-    backgroundColor: '#f9f9f9',
+    padding: 12,
+    paddingTop: 0,
+    justifyContent: 'center',
   },
   actionButton: {
     flex: 1,
-    borderRadius: 0,
-    paddingVertical: 8,
+    borderRadius: 8,
+    backgroundColor: '#1ABC9C',
   },
   buttonLabel: {
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'white',
+    paddingVertical: 2,
+  },
+  buttonContent: {
+    height: 44,
   },
 });
 

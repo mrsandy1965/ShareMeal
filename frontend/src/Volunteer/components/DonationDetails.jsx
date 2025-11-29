@@ -279,12 +279,19 @@ const styles = StyleSheet.create({
   },
   footer: {
     padding: 16,
+    paddingBottom: 24,
     borderTopWidth: 1,
     borderTopColor: '#eee',
     backgroundColor: 'white',
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   acceptButton: {
-    borderRadius: 8,
+    borderRadius: 12,
+    backgroundColor: '#1ABC9C',
   },
 });
 

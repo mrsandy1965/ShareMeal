@@ -218,21 +218,30 @@ const VolunteerDashboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F5F7FA',
   },
   header: {
     backgroundColor: '#1ABC9C',
-    padding: 16,
+    padding: 20,
     paddingBottom: 24,
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: 'white',
+    marginBottom: 4,
   },
   headerSubtitle: {
-    color: 'rgba(255,255,255,0.8)',
-    fontSize: 14,
+    color: 'rgba(255,255,255,0.9)',
+    fontSize: 16,
+    fontWeight: '500',
   },
   content: {
     flex: 1,
@@ -245,16 +254,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
-    marginTop: 32,
+    marginTop: 48,
   },
   emptyStateText: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#666',
+    color: '#333',
     marginBottom: 8,
   },
   emptyStateSubtext: {
     color: '#999',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });
 
