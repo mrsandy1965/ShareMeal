@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  password  String
+  role      String   // "donor" or "volunteer"
+  createdAt DateTime @default(now())
+  
+  
+  donations    Donation[]   @relation("DonorDonations")
+  acceptances  Acceptance[]
+  ratingsGiven Rating[]     @relation("DonorRatings")
+  ratingsReceived Rating[]  @relation("VolunteerRatings")
+  
+  @@map("users")
+}
+
+model Donation {
+  id                   String    @id @default(uuid())
+  donorId              String
+  foodType             String
+  approxQuantity       Int
+  quantityUnit         String    @default("portions")
+  area                 String
+  pickupAddress        String
+  preferredPickupTime  DateTime?
+  contactNumber        String?
+  status               String    @default("available") // available, accepted, completed, cancelled
+  suggestedVolunteerId String?
+  createdAt            DateTime  @default(now())
+  acceptedAt           DateTime?
+  completedAt          DateTime?
+  
+  
+  donor       User            @relation("DonorDonations", fields: [donorId], references: [id])
+  photos      DonationPhoto[]
+  acceptances Acceptance[]
+  ratings     Rating[]
+  
+  @@map("donations")
+}
+
+model DonationPhoto {
+  id         String @id @default(uuid())
+  donationId String
+  url        String
+  
+  
+  donation Donation @relation(fields: [donationId], references: [id], onDelete: Cascade)
+  
+  @@map("donation_photos")
+}
+
+model Acceptance {
+  id          String    @id @default(uuid())
+  donationId  String
+  volunteerId String
+  status      String    @default("accepted") // accepted, completed
+  acceptedAt  DateTime  @default(now())
+  completedAt DateTime?
+  
+  
+  donation  Donation @relation(fields: [donationId], references: [id])
+  volunteer User     @relation(fields: [volunteerId], references: [id])
+  
+  @@unique([donationId, volunteerId])
+  @@map("acceptances")
+}
+
+model Rating {
+  id          String    @id @default(uuid())
+  donationId  String
+  donorId     String
+  volunteerId String
+  rating      Int       // 1-5
+  comment     String?
+  createdAt   DateTime  @default(now())
+  
+
+  donation  Donation @relation(fields: [donationId], references: [id])
+  donor     User     @relation("DonorRatings", fields: [donorId], references: [id])
+  volunteer User     @relation("VolunteerRatings", fields: [volunteerId], references: [id])
+  
+  @@unique([donationId, donorId])
+  @@map("ratings")
+}
