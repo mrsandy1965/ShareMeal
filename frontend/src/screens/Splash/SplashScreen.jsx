@@ -7,12 +7,12 @@ const { height } = Dimensions.get("window");
 export default function SplashScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <ImageBackground source={require("./../assets/splashImage.png")} style={styles.bg} resizeMode="cover" >
+            <ImageBackground source={require("../../../assets/splashImage.png")} style={styles.bg} resizeMode="cover" >
                 <LinearGradient colors={["rgba(0,0,0,0.04)", "rgba(0,0,0,0.16)", "rgba(0,0,0,0.4)",]} style={styles.gradient} />
                 <View style={styles.bottomContainer}>
                     <Text style={styles.appName}>ShareMeal</Text>
                     <Text style={styles.tagline}>Together, We Feed Hope.</Text>
-                    <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate("Volunteer")}>
+                    <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate("Main")}>
                         <Ionicons name="chevron-forward" size={30} color="#fff" />
                     </TouchableOpacity>
                 </View>
