@@ -213,10 +213,10 @@ const VolunteerDashboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#FFFFFF',
   },
   header: {
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#1ABC9C',
     padding: 16,
     paddingBottom: 24,
   },

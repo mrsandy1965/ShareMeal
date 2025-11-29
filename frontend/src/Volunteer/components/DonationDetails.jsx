@@ -86,8 +86,8 @@ const DonationDetails = ({ visible, onDismiss, donation, onAccept }) => {
               </Chip>
               <Chip
                 mode="outlined"
-                style={[styles.chip, { borderColor: '#3F51B5' }]}
-                textStyle={{ color: '#3F51B5' }}
+                style={[styles.chip, { borderColor: '#2980B9' }]}
+                textStyle={{ color: '#2980B9' }}
               >
                 {isPackaged ? 'Packaged' : 'Fresh Food'}
               </Chip>
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   avatar: {
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#1ABC9C',
   },
   instructionSection: {
     marginTop: 16,

@@ -22,8 +22,8 @@ const DonationCard = ({ donation, onAccept, onPress, isAccepted = false }) => {
       <View style={styles.cardContent}>
         <View style={styles.imageContainer}>
           {foodImage ? (
-            <Image 
-              source={{ uri: foodImage }} 
+            <Image
+              source={{ uri: foodImage }}
               style={styles.foodImage}
               resizeMode="cover"
             />
@@ -31,64 +31,64 @@ const DonationCard = ({ donation, onAccept, onPress, isAccepted = false }) => {
             <MaterialIcons name="fastfood" size={40} color="#9e9e9e" />
           )}
         </View>
-        
+
         <View style={styles.detailsContainer}>
           <View style={styles.headerRow}>
             <View style={styles.foodInfo}>
               <Text style={styles.foodType}>{foodType}</Text>
-              
+
               <View style={styles.infoRow}>
                 <MaterialIcons name="location-on" size={16} color="#666" />
                 <Text style={styles.infoText}>{area}</Text>
               </View>
-              
+
               <View style={styles.infoRow}>
                 <MaterialIcons name="access-time" size={16} color="#666" />
                 <Text style={styles.infoText}>{pickupTime}</Text>
               </View>
-              
+
               <View style={styles.chipContainer}>
-                <View 
+                <View
                   style={[
-                    styles.chip, 
-                    { 
+                    styles.chip,
+                    {
                       backgroundColor: isVeg ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)',
                       borderColor: isVeg ? '#4CAF50' : '#F44336'
                     }
                   ]}
                 >
-                  <Text 
+                  <Text
                     style={[
-                      styles.chipText, 
+                      styles.chipText,
                       { color: isVeg ? '#4CAF50' : '#F44336' }
                     ]}
                   >
                     {isVeg ? 'Veg' : 'Non-Veg'}
                   </Text>
                 </View>
-                
-                <View 
+
+                <View
                   style={[
-                    styles.chip, 
-                    { 
-                      backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                      borderColor: '#3F51B5'
+                    styles.chip,
+                    {
+                      backgroundColor: 'rgba(41, 128, 185, 0.1)',
+                      borderColor: '#2980B9'
                     }
                   ]}
                 >
-                  <Text style={[styles.chipText, { color: '#3F51B5' }]}>
+                  <Text style={[styles.chipText, { color: '#2980B9' }]}>
                     {isPackaged ? 'Packaged' : 'Fresh'}
                   </Text>
                 </View>
               </View>
             </View>
-            
+
             <View style={styles.quantityContainer}>
               <Text style={styles.quantityText}>{quantity} servings</Text>
               <Text style={styles.mealsText}>~{meals} meals</Text>
             </View>
           </View>
-          
+
           {donorName && (
             <Text style={styles.donorText}>
               Donated by: {donorName}
@@ -96,14 +96,14 @@ const DonationCard = ({ donation, onAccept, onPress, isAccepted = false }) => {
           )}
         </View>
       </View>
-      
+
       <Card.Actions style={styles.cardActions}>
-        <Button 
-          mode="contained" 
+        <Button
+          mode="contained"
           onPress={onAccept}
           disabled={isAccepted}
           style={[
-            styles.actionButton, 
+            styles.actionButton,
             isAccepted && { backgroundColor: theme.colors.secondary }
           ]}
           labelStyle={styles.buttonLabel}
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   quantityText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#3F51B5',
+    color: '#1ABC9C',
   },
   mealsText: {
     fontSize: 10,
